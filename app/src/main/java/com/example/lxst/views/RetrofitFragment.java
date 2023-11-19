@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.example.lxst.Adapter.LeaderboardAdapter;
 import com.example.lxst.Model.LeaderboardModel;
@@ -38,6 +39,7 @@ public class RetrofitFragment extends Fragment {
 
     IGetApiModel API;
     RecyclerView recyclerView;
+    ProgressBar progressBar;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     public RetrofitFragment() {
@@ -62,7 +64,7 @@ public class RetrofitFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        progressBar = view.findViewById(R.id.RetrofitProgressbar);
         recyclerView = view.findViewById(R.id.RetrofitRecyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -87,6 +89,7 @@ public class RetrofitFragment extends Fragment {
     private void displayData(List<ApiModel> apiModelList) {
         ApiModelAdapter adapter = new ApiModelAdapter(apiModelList);
         recyclerView.setAdapter(adapter);
+        progressBar.setVisibility(View.GONE);
     }
 
     public void onStop(){
