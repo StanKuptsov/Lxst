@@ -35,6 +35,7 @@ public class ListFragment extends Fragment implements QuizListAdapter.OnItemClic
     private QuizListViewModel viewModel;
     private QuizListAdapter adapter;
     private Button logout_btn;
+    private Button retrofit_btn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,6 +61,7 @@ public class ListFragment extends Fragment implements QuizListAdapter.OnItemClic
         navController = Navigation.findNavController(view);
 
         logout_btn = view.findViewById(R.id.logout_btn);
+        retrofit_btn = view.findViewById(R.id.retrofit_btn);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -80,6 +82,13 @@ public class ListFragment extends Fragment implements QuizListAdapter.OnItemClic
             @Override
             public void onClick(View v) {
                 navController.navigate(R.id.action_listFragment_to_signInFragment);
+            }
+        });
+
+        retrofit_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_listFragment_to_retrofitFragment);
             }
         });
 

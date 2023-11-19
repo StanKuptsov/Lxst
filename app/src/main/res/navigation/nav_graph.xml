@@ -51,6 +51,9 @@
         <action
             android:id="@+id/action_listFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_retrofitFragment"
+            app:destination="@id/retrofitFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -108,6 +111,15 @@
         tools:layout="@layout/fragment_leaderboard" >
         <action
             android:id="@+id/action_leaderboardFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/retrofitFragment"
+        android:name="com.example.lxst.views.RetrofitFragment"
+        android:label="fragment_retrofit"
+        tools:layout="@layout/fragment_retrofit" >
+        <action
+            android:id="@+id/action_retrofitFragment_to_listFragment"
             app:destination="@id/listFragment" />
     </fragment>
 </navigation>

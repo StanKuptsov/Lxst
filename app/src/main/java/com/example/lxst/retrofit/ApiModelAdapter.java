@@ -18,8 +18,8 @@ public class ApiModelAdapter extends RecyclerView.Adapter<ApiModelViewHolder> {
     Context context;
     List <ApiModel> apiModelList;
 
-    public ApiModelAdapter(Context context, List<ApiModel> apiModelList) {
-        this.context = context;
+    public ApiModelAdapter(List<ApiModel> apiModelList) {
+        //this.context = context;
         this.apiModelList = apiModelList;
     }
 
@@ -34,7 +34,7 @@ public class ApiModelAdapter extends RecyclerView.Adapter<ApiModelViewHolder> {
     public void onBindViewHolder(@NonNull ApiModelViewHolder holder, int position) {
         holder.tvAuthor.setText(String.valueOf(apiModelList.get(position).userId));
         holder.tvTitle.setText(String.valueOf(apiModelList.get(position).title));
-        holder.tvContent.setText(new StringBuilder(apiModelList.get(position).title.substring(0, 20))
+        holder.tvContent.setText(new StringBuilder(apiModelList.get(position).body.substring(0, 20))
                 .append("...").toString());
 
     }
