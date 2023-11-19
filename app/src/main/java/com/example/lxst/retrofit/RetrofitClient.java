@@ -16,4 +16,8 @@ public class RetrofitClient {
                     .build();
         return dataInstance;
     }
+
+    private RetrofitClient(){
+
+    }
 }
